@@ -1,0 +1,26 @@
+#include "bms_data.h"
+
+/*
+ * Global BMS data
+ */
+BMS_Data_t BMS_Data =
+{
+    .battery_voltage = 0.0f,
+    .battery_current = 0.0f,
+    .battery_temperature = 0.0f,
+
+    .state_of_charge = 0.0f,
+    .state_of_health = 100.0f,
+
+    .voltage_min = 0.0f,
+    .voltage_max = 0.0f,
+
+    .temperature_min = 0.0f,
+    .temperature_max = 0.0f,
+
+    .over_voltage = 0,
+    .under_voltage = 0,
+    .over_current = 0,
+    .over_temperature = 0,
+	.fault_status = 0
+};

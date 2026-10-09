@@ -1,0 +1,19 @@
+#ifndef BMS_FAULTS_H
+#define BMS_FAULTS_H
+
+#include "main.h"
+#include "bms_data.h"
+
+/* Fault bit definitions */
+#define BMS_FAULT_OVERVOLTAGE      (1U << 0)
+#define BMS_FAULT_UNDERVOLTAGE     (1U << 1)
+#define BMS_FAULT_OVERCURRENT      (1U << 2)
+#define BMS_FAULT_OVERTEMPERATURE  (1U << 3)
+
+/*
+ * Check BMS operating conditions and update
+ * the fault flags inside BMS_Data.
+ */
+void BMS_Faults_Update(void);
+
+#endif /* BMS_FAULTS_H */

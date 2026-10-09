@@ -1,0 +1,48 @@
+#ifndef BMS_CONFIG_H
+#define BMS_CONFIG_H
+
+/* =========================================================
+ * BMS Operating Limits
+ * ========================================================= */
+
+/* Battery pack limits - software simulation values for now */
+#define BMS_MAX_VOLTAGE        54.6f
+#define BMS_MIN_VOLTAGE        39.0f
+
+/* Temperature limits */
+#define BMS_MAX_TEMPERATURE    45.0f
+#define BMS_MIN_TEMPERATURE     0.0f
+
+/* Current limit - temporary software value */
+#define BMS_MAX_CURRENT        50.0f
+
+
+/* =========================================================
+ * ADC Configuration
+ * ========================================================= */
+
+#define ADC_MAX_VALUE          4095.0f
+#define ADC_REFERENCE_VOLTAGE  3.3f
+
+
+/* =========================================================
+ * Voltage Sensor Scaling
+ *
+ * These values are temporary until we finalize the
+ * actual voltage-divider circuit.
+ * ========================================================= */
+
+#define BATTERY_VOLTAGE_SCALE  16.545f
+
+
+/* =========================================================
+ * Current Sensor Scaling
+ *
+ * Temporary value. We will replace this after selecting
+ * the actual current sensor.
+ * ========================================================= */
+
+#define CURRENT_SENSOR_SCALE   15.15f
+
+
+#endif /* BMS_CONFIG_H */

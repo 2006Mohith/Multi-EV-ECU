@@ -1,0 +1,46 @@
+/*
+ * bms_soh.c
+ *
+ *  Created on: 10-Aug-2026
+ *      Author: MohithK
+ */
+#include "bms_soh.h"
+#include "bms_config.h"
+
+/*
+ * Initialize SOH module
+ */
+void BMS_SOH_Init(void)
+{
+    /*
+     * No additional initialization required
+     * for the prototype implementation.
+     */
+}
+
+/*
+ * Calculate and update State of Health
+ */
+void BMS_SOH_Update(void)
+{
+    /*
+     * Prototype SOH calculation.
+     *
+     * For now, SOH is based on the battery operating
+     * temperature.
+     *
+     * This is NOT a real battery SOH algorithm.
+     * Later, this can be replaced with a capacity/
+     * cycle-based SOH estimation.
+     */
+
+    if (BMS_Data.battery_temperature > BMS_MAX_TEMPERATURE)
+    {
+        BMS_Data.state_of_health = 90.0f;
+    }
+    else
+    {
+        BMS_Data.state_of_health = 100.0f;
+    }
+}
+

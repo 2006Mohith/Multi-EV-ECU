@@ -1,0 +1,80 @@
+#include "bms_adc.h"
+#include "bms_data.h"
+#include "bms_config.h"
+/*
+ * ADC handle is generated in main.c
+ */
+extern ADC_HandleTypeDef hadc1;
+
+/*
+ * Initialize BMS ADC system
+ */
+void BMS_ADC_Init(void)
+{
+    /*
+     * ADC1 is already initialized by CubeMX
+     * through MX_ADC1_Init().
+     *
+     * No additional hardware configuration is
+     * required here for now.
+     */
+}
+
+/*
+ * Read ADC values and update BMS data
+ */
+void BMS_ADC_Update(void)
+{
+    uint32_t adc_value_voltage;
+    uint32_t adc_value_current;
+
+    /*
+     * Start ADC conversion
+     */
+    if (HAL_ADC_Start(&hadc1) != HAL_OK)
+    {
+        Error_Handler();
+    }
+
+    /*
+     * Read ADC channel 0
+     * PA0 -> ADC1_IN0
+     */
+    if (HAL_ADC_PollForConversion(&hadc1, 100) != HAL_OK)
+    {
+        Error_Handler();
+    }
+
+    adc_value_voltage = HAL_ADC_GetValue(&hadc1);
+
+    /*
+     * Read ADC channel 1
+     * PA1 -> ADC1_IN1
+     */
+    if (HAL_ADC_PollForConversion(&hadc1, 100) != HAL_OK)
+    {
+        Error_Handler();
+    }
+
+    adc_value_current = HAL_ADC_GetValue(&hadc1);
+
+    /*
+     * Stop ADC
+     */
+    HAL_ADC_Stop(&hadc1);
+
+    /*
+     * Temporary conversion for testing.
+     *
+     * ADC is 12-bit:
+     * 0     -> 0 V
+     * 4095  -> 3.3 V
+     *
+     * These values will later be replaced with
+     * the actual voltage/current sensor scaling.
+     */
+
+    BMS_Data.battery_voltage =((float)adc_value_voltage * ADC_REFERENCE_VOLTAGE)/ ADC_MAX_VALUE* BATTERY_VOLTAGE_SCALE;
+
+    BMS_Data.battery_current =((float)adc_value_current * ADC_REFERENCE_VOLTAGE)/ ADC_MAX_VALUE* CURRENT_SENSOR_SCALE;
+}

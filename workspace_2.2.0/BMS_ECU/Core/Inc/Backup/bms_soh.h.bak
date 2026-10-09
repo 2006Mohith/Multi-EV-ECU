@@ -1,0 +1,17 @@
+#ifndef BMS_SOH_H
+#define BMS_SOH_H
+
+#include "main.h"
+#include "bms_data.h"
+
+/*
+ * Initialize the SOH calculation module.
+ */
+void BMS_SOH_Init(void);
+
+/*
+ * Calculate and update the battery State of Health.
+ */
+void BMS_SOH_Update(void);
+
+#endif /* BMS_SOH_H */

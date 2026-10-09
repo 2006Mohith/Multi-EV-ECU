@@ -1,0 +1,35 @@
+/*
+ * bms_temperature.c
+ *
+ *  Created on: 10-Aug-2026
+ *      Author: MohithK
+ */
+
+#include "bms_temperature.h"
+
+/*
+ * Initialize temperature monitoring module.
+ */
+void BMS_Temperature_Init(void)
+{
+    /*
+     * No additional initialization for now.
+     *
+     * The actual temperature sensor will be selected
+     * and configured when the hardware design is finalized.
+     */
+}
+
+/*
+ * Update battery temperature.
+ */
+void BMS_Temperature_Update(void)
+{
+    /*
+     * Temporary simulated temperature.
+     *
+     * This will later be replaced by the actual
+     * temperature sensor reading.
+     */
+    BMS_Data.battery_temperature = 32.0f;
+}

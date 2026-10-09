@@ -1,0 +1,64 @@
+/*
+ * bms_faults.c
+ *
+ *  Created on: 10-Aug-2026
+ *      Author: MohithK
+ */
+#include "bms_faults.h"
+#include "bms_config.h"
+
+void BMS_Faults_Update(void)
+{
+    /* Clear previous fault status */
+    BMS_Data.over_voltage = 0;
+    BMS_Data.under_voltage = 0;
+    BMS_Data.over_current = 0;
+    BMS_Data.over_temperature = 0;
+
+    /* Over-voltage check */
+    if (BMS_Data.battery_voltage > BMS_MAX_VOLTAGE)
+    {
+        BMS_Data.over_voltage = 1;
+    }
+
+    /* Under-voltage check */
+    if (BMS_Data.battery_voltage < BMS_MIN_VOLTAGE)
+    {
+        BMS_Data.under_voltage = 1;
+    }
+
+    /* Over-current check */
+    if (BMS_Data.battery_current > BMS_MAX_CURRENT)
+    {
+        BMS_Data.over_current = 1;
+    }
+
+    /* Over-temperature check */
+    if (BMS_Data.battery_temperature > BMS_MAX_TEMPERATURE)
+    {
+        BMS_Data.over_temperature = 1;
+    }
+
+    /* Create combined fault status byte */
+    BMS_Data.fault_status = 0;
+
+    if (BMS_Data.over_voltage)
+    {
+        BMS_Data.fault_status |= BMS_FAULT_OVERVOLTAGE;
+    }
+
+    if (BMS_Data.under_voltage)
+    {
+        BMS_Data.fault_status |= BMS_FAULT_UNDERVOLTAGE;
+    }
+
+    if (BMS_Data.over_current)
+    {
+        BMS_Data.fault_status |= BMS_FAULT_OVERCURRENT;
+    }
+
+    if (BMS_Data.over_temperature)
+    {
+        BMS_Data.fault_status |= BMS_FAULT_OVERTEMPERATURE;
+    }
+}

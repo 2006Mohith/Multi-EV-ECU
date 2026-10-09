@@ -1,0 +1,56 @@
+/*
+ * bms_soc.c
+ *
+ *  Created on: 10-Aug-2026
+ *      Author: MohithK
+ */
+
+
+#include "bms_soc.h"
+#include "bms_config.h"
+
+/*
+ * Initialize SOC module
+ */
+void BMS_SOC_Init(void)
+{
+    /*
+     * No additional initialization required
+     * for the first software implementation.
+     */
+}
+
+/*
+ * Calculate and update State of Charge
+ */
+void BMS_SOC_Update(void)
+{
+    float soc;
+
+    /*
+     * Simple voltage-based SOC estimation.
+     *
+     * 39.0 V -> 0% SOC
+     * 54.6 V -> 100% SOC
+     *
+     * This is a prototype estimation.
+     * Later we can replace it with a more accurate
+     * coulomb-counting / battery-model approach.
+     */
+
+    soc = ((BMS_Data.battery_voltage - BMS_MIN_VOLTAGE) /
+           (BMS_MAX_VOLTAGE - BMS_MIN_VOLTAGE)) * 100.0f;
+
+    /* Limit SOC to 0-100% */
+    if (soc > 100.0f)
+    {
+        soc = 100.0f;
+    }
+
+    if (soc < 0.0f)
+    {
+        soc = 0.0f;
+    }
+
+    BMS_Data.state_of_charge = soc;
+}

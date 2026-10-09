@@ -1,0 +1,41 @@
+#ifndef BMS_DATA_H
+#define BMS_DATA_H
+
+#include <stdint.h>
+
+/*
+ * BMS battery data structure
+ */
+typedef struct
+{
+    /* Cell / pack measurements */
+    float battery_voltage;
+    float battery_current;
+    float battery_temperature;
+
+    /* Battery state */
+    float state_of_charge;
+    float state_of_health;
+
+    /* Limits */
+    float voltage_min;
+    float voltage_max;
+    float temperature_min;
+    float temperature_max;
+
+    /* Fault status */
+    uint8_t over_voltage;
+    uint8_t under_voltage;
+    uint8_t over_current;
+    uint8_t over_temperature;
+    uint8_t fault_status;
+
+} BMS_Data_t;
+
+
+/*
+ * Global BMS data
+ */
+extern BMS_Data_t BMS_Data;
+
+#endif /* BMS_DATA_H */

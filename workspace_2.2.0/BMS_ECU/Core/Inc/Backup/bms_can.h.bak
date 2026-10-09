@@ -1,0 +1,9 @@
+#ifndef BMS_CAN_H
+#define BMS_CAN_H
+
+#include "main.h"
+
+void BMS_CAN_Start(void);
+void BMS_CAN_SendTestMessage(void);
+
+#endif /* BMS_CAN_H */
