@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" style="background-color: white; font-family: monospace;">
+    <rect x="150" y="50" width="200" height="140" fill="#f0f0f0" stroke="black" stroke-width="2"/>
+    <text x="250" y="80" font-size="16" font-weight="bold" text-anchor="middle">EV Powertrain System</text>
+
+    <line x1="50" y1="120" x2="150" y2="120" stroke="black" stroke-width="2"/>
+    <circle cx="50" cy="120" r="3" fill="black"/>
+    <text x="155" y="124" font-size="12" fill="blue">CAN_RX</text>
+    <text x="45" y="115" font-size="12" text-anchor="end">CAN Bus Network</text>
+
+    <line x1="50" y1="160" x2="150" y2="160" stroke="black" stroke-width="2"/>
+    <circle cx="50" cy="160" r="3" fill="black"/>
+    <text x="155" y="164" font-size="12" fill="blue">CAN_TX</text>
+    <text x="45" y="155" font-size="12" text-anchor="end">CAN Bus Network</text>
+
+    <line x1="350" y1="120" x2="450" y2="120" stroke="black" stroke-width="2"/>
+    <circle cx="450" cy="120" r="3" fill="black"/>
+    <text x="345" y="124" font-size="12" fill="blue" text-anchor="end">MCU_EN</text>
+    <text x="455" y="115" font-size="12">MCU System</text>
+
+    <line x1="350" y1="160" x2="450" y2="160" stroke="black" stroke-width="2"/>
+    <circle cx="450" cy="160" r="3" fill="black"/>
+    <text x="345" y="164" font-size="12" fill="blue" text-anchor="end">BMS_CS</text>
+    <text x="455" y="155" font-size="12">BMS System</text>
+
+    <text x="250" y="380" font-size="10" fill="gray" text-anchor="middle">Note: External components TBD - Hardware Verification Required</text>
+    </svg>

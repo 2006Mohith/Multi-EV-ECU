@@ -56,10 +56,25 @@ graph TD
     Task1000ms --> Debug[UART Telemetry]
 ```
 
-## Hardware and Circuit Diagrams
-Below is the conceptual electrical block diagram of the EV powertrain architecture, illustrating the connections between the VCU, MCU, BMS, and their respective high-voltage components.
+## Overall Electrical Circuit Diagram
+Below is the overall electrical circuit diagram illustrating the physical pin connections between the VCU, MCU, BMS, and external networks. Unverified external connections are marked for hardware verification.
 
-![EV Circuit Diagram](images/ev_circuit_diagram.jpg)
+![Overall Electrical Circuit Diagram](docs/circuit-diagrams/overall-circuit.svg)
+
+## VCU Circuit Diagram
+This diagram shows the exact pin-to-pin connections for the Vehicle Control Unit interfaces.
+
+![VCU Electrical Schematic](docs/circuit-diagrams/vcu-circuit.svg)
+
+## BMS Circuit Diagram
+This diagram outlines the Battery Management System connections, noting missing resistor dividers and shunts as TBD.
+
+![BMS Electrical Schematic](docs/circuit-diagrams/bms-circuit.svg)
+
+## MCU Pin-to-Pin Connections
+This schematic outlines the Motor Control Unit physical pin mappings.
+
+![MCU Pin Connections](docs/circuit-diagrams/mcu-circuit.svg)
 
 ## Inputs and Outputs (Hardware Interfaces)
 All microcontrollers are configured as `STM32F103C8T6`. Below are the verified pin configurations:
