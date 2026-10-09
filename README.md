@@ -56,6 +56,11 @@ graph TD
     Task1000ms --> Debug[UART Telemetry]
 ```
 
+## Hardware and Circuit Diagrams
+Below is the conceptual electrical block diagram of the EV powertrain architecture, illustrating the connections between the VCU, MCU, BMS, and their respective high-voltage components.
+
+![EV Circuit Diagram](images/ev_circuit_diagram.jpg)
+
 ## Inputs and Outputs (Hardware Interfaces)
 All microcontrollers are configured as `STM32F103C8T6`. Below are the verified pin configurations:
 
